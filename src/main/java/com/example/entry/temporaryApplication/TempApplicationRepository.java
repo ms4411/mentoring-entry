@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface TemporaryApplicationRepository extends JpaRepository<TempApplication, Long> {
+public interface TempApplicationRepository extends JpaRepository<TempApplication, Long> {
     Optional<TempApplication> findByUser(User user);
 }

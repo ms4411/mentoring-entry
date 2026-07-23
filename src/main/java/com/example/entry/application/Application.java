@@ -1,11 +1,14 @@
 package com.example.entry.application;
 
 import com.example.entry.User.User;
+import com.example.entry.enums.genderEnum;
+import com.example.entry.enums.localEnum;
 import com.example.entry.global.entity.BaseIdEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
 import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -13,6 +16,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.time.LocalDate;
 @Immutable
 @Entity
+@Getter
 public class Application extends BaseIdEntity {
 
     @ManyToOne
@@ -26,11 +30,12 @@ public class Application extends BaseIdEntity {
     @Column(nullable = false)
     private LocalDate birthday;
 
+    //enum 필요
     @Column(nullable = false)
-    private Boolean area;
+    private localEnum area;
 
     @Column(nullable = false)
-    private String gender;
+    private genderEnum gender;
 
 
     @Column(name = "self_introduction")

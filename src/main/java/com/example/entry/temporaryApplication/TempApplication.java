@@ -1,17 +1,21 @@
 package com.example.entry.temporaryApplication;
 
 import com.example.entry.User.User;
+import com.example.entry.enums.genderEnum;
+import com.example.entry.enums.localEnum;
 import com.example.entry.global.entity.BaseIdEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
 @Entity(name = "TemporaryApplication")
+@Getter
 public class TempApplication extends BaseIdEntity {
 
     @ManyToOne
@@ -26,10 +30,10 @@ public class TempApplication extends BaseIdEntity {
     private LocalDate birthday;
 
     @Column(nullable = false)
-    private Boolean area;
+    private localEnum area;
 
     @Column(nullable = false)
-    private String gender;
+    private genderEnum gender;
 
 
     @Column(name = "self_introduction")
