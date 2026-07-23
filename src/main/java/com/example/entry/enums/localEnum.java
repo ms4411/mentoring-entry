@@ -1,5 +1,14 @@
 package com.example.entry.enums;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum localEnum {
-    LOCAL, GLOBAL
+    LOCAL("local", "대전"),
+    GLOBAL("global", "전국");
+
+    final String en;
+    final String ko;
 }
