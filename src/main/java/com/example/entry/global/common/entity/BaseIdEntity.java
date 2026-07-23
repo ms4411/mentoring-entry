@@ -1,4 +1,4 @@
-package com.example.entry.global.entity;
+package com.example.entry.global.common.entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

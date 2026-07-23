@@ -3,7 +3,7 @@ package com.example.entry.domain.application;
 import com.example.entry.domain.User.User;
 import com.example.entry.domain.enums.genderEnum;
 import com.example.entry.domain.enums.localEnum;
-import com.example.entry.global.entity.BaseIdEntity;
+import com.example.entry.global.common.entity.BaseIdEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
