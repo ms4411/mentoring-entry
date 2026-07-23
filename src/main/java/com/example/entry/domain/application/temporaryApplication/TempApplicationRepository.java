@@ -1,6 +1,6 @@
-package com.example.entry.temporaryApplication;
+package com.example.entry.domain.application.temporaryApplication;
 
-import com.example.entry.User.User;
+import com.example.entry.domain.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

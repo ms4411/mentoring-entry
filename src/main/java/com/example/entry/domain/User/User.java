@@ -1,4 +1,4 @@
-package com.example.entry.User;
+package com.example.entry.domain.User;
 
 import com.example.entry.global.entity.BaseIdEntity;
 import jakarta.persistence.Column;

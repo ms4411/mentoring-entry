@@ -1,24 +1,22 @@
-package com.example.entry.application;
+package com.example.entry.domain.application;
 
-import com.example.entry.User.User;
-import com.example.entry.enums.genderEnum;
-import com.example.entry.enums.localEnum;
+import com.example.entry.domain.User.User;
+import com.example.entry.domain.enums.genderEnum;
+import com.example.entry.domain.enums.localEnum;
 import com.example.entry.global.entity.BaseIdEntity;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
-import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
-@Immutable
-@Entity
-@Getter
-public class Application extends BaseIdEntity {
 
+@MappedSuperclass
+@Getter
+public abstract class BaseApplication extends BaseIdEntity{
     @ManyToOne
     @JoinColumn(name = "user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -30,7 +28,6 @@ public class Application extends BaseIdEntity {
     @Column(nullable = false)
     private LocalDate birthday;
 
-    //enum 필요
     @Column(nullable = false)
     private localEnum area;
 
@@ -45,3 +42,4 @@ public class Application extends BaseIdEntity {
     private String academicPlan;
 
 }
+
