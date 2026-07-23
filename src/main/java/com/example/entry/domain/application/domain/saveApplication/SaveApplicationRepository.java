@@ -1,4 +1,4 @@
-package com.example.entry.domain.application.saveApplication;
+package com.example.entry.domain.application.domain.saveApplication;
 
 import com.example.entry.domain.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;

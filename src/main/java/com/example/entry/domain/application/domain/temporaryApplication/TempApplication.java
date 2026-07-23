@@ -1,4 +1,4 @@
-package com.example.entry.domain.application.temporaryApplication;
+package com.example.entry.domain.application.domain.temporaryApplication;
 
 import com.example.entry.domain.application.BaseApplication;
 import jakarta.persistence.Entity;
