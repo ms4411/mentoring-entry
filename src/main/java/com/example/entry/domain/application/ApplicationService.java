@@ -53,9 +53,20 @@ public class ApplicationService {
     }
 
     @Transactional
-    public String submit(Long tempApplicationId){
-        Application application=applicationRepository.findById(tempApplicationId).orElseThrow();
+    public String submit(Long id){
+        Application application=applicationRepository.findById(id).orElseThrow();
         application.submit();
         return "지원서 제출 성공";
+    }
+
+    public Application applicationDelete(Long id){
+        Application temp=applicationRepository.findById(id).orElseThrow();
+        applicationRepository.delete(temp);
+        return temp;
+    }
+    public Application applicationGet(Long userId){
+        return applicationRepository.findByUser(
+                userRepository.findById(userId).orElseThrow()
+        ).orElseThrow();
     }
 }
