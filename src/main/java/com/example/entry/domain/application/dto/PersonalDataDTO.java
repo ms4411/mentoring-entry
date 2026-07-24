@@ -5,7 +5,7 @@ import com.example.entry.domain.enums.GenderEnum;
 
 import java.time.LocalDate;
 
-public record PersonalData(
+public record PersonalDataDTO(
         Long id,
         String name,
         LocalDate birthday,

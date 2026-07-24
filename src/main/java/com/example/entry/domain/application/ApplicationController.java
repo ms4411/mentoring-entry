@@ -1,15 +1,13 @@
 package com.example.entry.domain.application;
 
-import com.example.entry.domain.application.dto.PersonalData;
-import com.example.entry.domain.enums.AreaEnum;
-import com.example.entry.domain.enums.GenderEnum;
+import com.example.entry.domain.application.dto.PersonalDataDTO;
+import com.example.entry.domain.application.dto.TextDataDTO;
 import com.example.entry.global.common.res.ResponseUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Map;
 
 @RestController
@@ -23,7 +21,7 @@ public class ApplicationController {
         return responseUtil.resMessage(applicationService.createTempApplication(userId), HttpStatus.CREATED);
     }
     @PatchMapping("/{id}/personalData")
-    public ResponseEntity<Application> personalDataInput(PersonalData personalData){
+    public ResponseEntity<Application> personalDataInput(PersonalDataDTO personalData){
         return ResponseEntity.ok(applicationService.inputPersonalData(
                 personalData.id(),
                 personalData.name(),
@@ -32,13 +30,17 @@ public class ApplicationController {
                 personalData.gender()
         ));
     }
-    @PatchMapping("/{id}/selfIntroduction")
-    public ResponseEntity<Application> selfIntroductionInput(Long id, String selfIntroduction){
-        return ResponseEntity.ok(applicationService.inputSelfIntroduction(id, selfIntroduction));
+    @PatchMapping("/selfIntroduction")
+    public ResponseEntity<Application> selfIntroductionInput(TextDataDTO textDataDTO){
+        return ResponseEntity.ok(
+                applicationService.inputSelfIntroduction(textDataDTO.id(), textDataDTO.text())
+        );
     }
-    @PatchMapping("/{id}/academicPlan")
-    public ResponseEntity<Application> academicPlaanInput(Long id, String academicPlan){
-        return ResponseEntity.ok(applicationService.inputAcademicPlan(id, academicPlan));
+    @PatchMapping("/academicPlan")
+    public ResponseEntity<Application> academicPlanInput(TextDataDTO textDataDTO){
+        return ResponseEntity.ok(
+                applicationService.inputAcademicPlan(textDataDTO.id(), textDataDTO.text())
+        );
     }
     @PatchMapping("/{id}/submit")
     public ResponseEntity<Map<String, String>> submit(Long id){
