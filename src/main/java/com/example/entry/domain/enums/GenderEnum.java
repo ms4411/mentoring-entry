@@ -5,10 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum localEnum {
-    LOCAL("local", "대전"),
-    GLOBAL("global", "전국");
+public enum GenderEnum {
+    WOMAN("woman"),
+    MAN("man");
 
-    final String en;
-    final String ko;
+    final String label;
 }
