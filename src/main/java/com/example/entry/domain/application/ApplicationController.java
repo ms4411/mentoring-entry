@@ -1,5 +1,6 @@
 package com.example.entry.domain.application;
 
+import com.example.entry.domain.application.dto.PersonalData;
 import com.example.entry.domain.enums.AreaEnum;
 import com.example.entry.domain.enums.GenderEnum;
 import com.example.entry.global.common.res.ResponseUtil;
@@ -22,8 +23,14 @@ public class ApplicationController {
         return responseUtil.resMessage(applicationService.createTempApplication(userId), HttpStatus.CREATED);
     }
     @PatchMapping("/{id}/personalData")
-    public ResponseEntity<Application> personalDataInput(Long id, String name, LocalDate birthday, AreaEnum area, GenderEnum gender){
-        return ResponseEntity.ok(applicationService.inputPersonalData(id, name, birthday, area, gender));
+    public ResponseEntity<Application> personalDataInput(PersonalData personalData){
+        return ResponseEntity.ok(applicationService.inputPersonalData(
+                personalData.id(),
+                personalData.name(),
+                personalData.birthday(),
+                personalData.area(),
+                personalData.gender()
+        ));
     }
     @PatchMapping("/{id}/selfIntroduction")
     public ResponseEntity<Application> selfIntroductionInput(Long id, String selfIntroduction){
